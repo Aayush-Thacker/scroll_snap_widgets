@@ -17,8 +17,8 @@ As soon as the user scrolls through these items, it automatically stops perfectl
 
 <table>
 <tr>
-<td><img src="" alt="Horizontal Items Recording"></td>
-<td><img src="" alt="Vertical Items Recording"></td>
+<td><img src="https://github.com/Aayush-Thacker/scroll_snap_widgets/blob/main/files/horizontal_recording.gif?raw=true" alt="Horizontal Items Recording"></td>
+<td><img src="https://github.com/Aayush-Thacker/scroll_snap_widgets/blob/main/files/vertical_recording.gif?raw=true" alt="Vertical Items Recording"></td>
 </tr>
 </table>
 
@@ -50,13 +50,13 @@ If the above two values are provided properly, the package will work perfectly. 
 
 
 ## Usage
-The example on GutHub will result in this kind of output:
+The example on GitHub will result in this kind of output:
 
 <table>
 <tr>
-<td><img src="" alt="Home Page Screenshot"></td>
-<td><img src="" alt="Horizontal Items Screenshot"></td>
-<td><img src="" alt="Vertical Items Screenshot"></td>
+<td><img src="https://raw.githubusercontent.com/Aayush-Thacker/scroll_snap_widgets/main/files/home_page_ss.png" alt="Home Page Screenshot"></td>
+<td><img src="https://raw.githubusercontent.com/Aayush-Thacker/scroll_snap_widgets/main/files/horizontal_ss.png" alt="Horizontal Items Screenshot"></td>
+<td><img src="https://raw.githubusercontent.com/Aayush-Thacker/scroll_snap_widgets/main/files/vertical_ss.png" alt="Vertical Items Screenshot"></td>
 </tr>
 </table>
 

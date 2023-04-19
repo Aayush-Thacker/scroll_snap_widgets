@@ -13,7 +13,7 @@ and the Flutter guide for
 
 A Flutter plugin for showing custom items in horizontal or vertical scrollable ListView with item snapping functionality.
 
-As soon as the user scrolls through these items, it automatically stops perfectly on an item to get a good user experience.
+As soon as the user scrolls through these items, it automatically stops perfectly on an item to get a good user experience. It uses only ScrollView and ScrollController to get this behavior, PageView is not being used here.
 
 <table>
 <tr>
@@ -27,21 +27,21 @@ As soon as the user scrolls through these items, it automatically stops perfectl
 This plugin consists of one widget called ScrollSnapWidgets that gives the snapping functionality automatically. It takes a few required properties and is fully customizable with custom items.
 
 There is also a controller class called ScrollSnapWidgetsController having multiple functions with customizations:
-    * isFirst() and isLast() to check if the user is at the first or last item in the scrollable area.
-    * animateNext(), animatePrevious(), jumpNext(), jumpPrevious() functions help to programitically go through items.
-    * animateStart(), animateEnd(), jumpStart(), jumpEnd() functions help to go directly to the starting or ending point programmatically.
-    * The dispose() method is also there for resource cleanup.
+    - isFirst() and isLast() to check if the user is at the first or last item in the scrollable area.
+    - animateNext(), animatePrevious(), jumpNext(), jumpPrevious() functions help to programitically go through items.
+    - animateStart(), animateEnd(), jumpStart(), jumpEnd() functions help to go directly to the starting or ending point programmatically.
+    - The dispose() method is also there for resource cleanup.
 
 ## Getting started
 
 This widget requires items with the same size of items to work, where size can be height or width depending on the scroll direction. 
 
-When Scroll Direction is Horizontal,
+When Scroll Direction is *Horizontal*,
 itemSize = Width
         &
 widgetSize = Height
 
-When Scroll Direction is Vertical,
+When Scroll Direction is *Vertical*,
 itemSize = Height
         &
 widgetSize = Width
@@ -98,4 +98,4 @@ _controller.jumpEnd();
 
 ## Additional information
 
-This is my first ever published package, hope it helps. If there are facing any issues please post them on GitHub. Also feel free to contribute by doing pull requests, new features, and bug fixes from you are always appreciated. Thank you.
+This is my first ever published package, hope it helps. If there are any issues please post them on GitHub issues section. Also feel free to contribute new features, and bug fixes from you are always appreciated. Thank you.

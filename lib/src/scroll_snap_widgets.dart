@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
 
+/*
+A custom made scroll physics to get the snapping effect
+this is not fully developed by myself, here is the source of the code from a stackoverflow answer:
+https://stackoverflow.com/questions/60458885/how-to-autocorrect-scroll-position-in-a-listview-flutter
+
+This custom made ScrollPhysics helped me a lot with a project, so I decided to use it to make a cool package that could help others too
+*/
 class PagingScrollPhysics extends ScrollPhysics {
   final double itemDimension;
 
@@ -35,6 +42,8 @@ class PagingScrollPhysics extends ScrollPhysics {
   @override
   Simulation? createBallisticSimulation(
       ScrollMetrics position, double velocity) {
+    // If we're out of range and not headed back in range, defer to the parent
+    // ballistics, which should put us back in range at a page boundary.
     if ((velocity <= 0.0 && position.pixels <= position.minScrollExtent) ||
         (velocity >= 0.0 && position.pixels >= position.maxScrollExtent)) {
       return super.createBallisticSimulation(position, velocity);
@@ -52,13 +61,22 @@ class PagingScrollPhysics extends ScrollPhysics {
   bool get allowImplicitScrolling => false;
 }
 
+/*
+Controller to control the behaviour of ScrollSnapWidgets
+use it's instance with the widget to use all the functionalities of this package
+there can be more functions added, if there is any requirement let me know in the GitHub issues
+*/
 class ScrollSnapWidgetsController {
+  //size should be the same as itemSize (width for horizontal) and (height for vertical)
   double size;
   ScrollSnapWidgetsController({
     required this.size,
   });
+
+  //initilizing the ScrollController to use other functionalities
   ScrollController itemScrollController = ScrollController();
 
+  //used to check if the user is at the first item
   bool isFirst() {
     if (itemScrollController.position.pixels < size) {
       return true;
@@ -67,6 +85,7 @@ class ScrollSnapWidgetsController {
     }
   }
 
+  //function used to check if the user is on the edge of the scrollview (not end, it cound also be starting edge)
   bool isLast() {
     if (itemScrollController.position.atEdge) {
       return true;
@@ -75,10 +94,13 @@ class ScrollSnapWidgetsController {
     }
   }
 
+  //animate to the start item with custom duration and curve
   bool animateStart({
+    //returns true if action is done, false otherwise
     Duration duration = const Duration(milliseconds: 500),
     Cubic curve = Curves.easeIn,
   }) {
+    //checking if the user is not already at the start
     if (!isFirst()) {
       itemScrollController.animateTo(
           itemScrollController.position.minScrollExtent,
@@ -89,10 +111,13 @@ class ScrollSnapWidgetsController {
     return false;
   }
 
+  //animate to the end item with custom duration and curve
   bool animateEnd({
+    //returns true if action is done, false otherwise
     Duration duration = const Duration(milliseconds: 500),
     Cubic curve = Curves.easeOut,
   }) {
+    //checking if the user is on the last edge
     if (!isLast() || isFirst()) {
       itemScrollController.animateTo(
           itemScrollController.position.maxScrollExtent,
@@ -103,7 +128,10 @@ class ScrollSnapWidgetsController {
     return false;
   }
 
+  //go directly to the start
   bool jumpStart() {
+    //returns true if action is done, false otherwise
+    //checking if the user is not already at the start
     if (!isFirst()) {
       itemScrollController.jumpTo(
         itemScrollController.position.minScrollExtent,
@@ -113,7 +141,10 @@ class ScrollSnapWidgetsController {
     return false;
   }
 
+  //go directly to the end
   bool jumpEnd() {
+    //returns true if action is done, false otherwise
+    //checking if the user is on the last edge
     if (!isLast() || isFirst()) {
       itemScrollController.jumpTo(
         itemScrollController.position.maxScrollExtent,
@@ -123,10 +154,13 @@ class ScrollSnapWidgetsController {
     return false;
   }
 
+  //animate to the next item with custom duration and curve
   bool animateNext({
+    //returns true if action is done, false otherwise
     Duration duration = const Duration(milliseconds: 500),
     Cubic curve = Curves.easeIn,
   }) {
+    //checking if the user is on the last edge
     if (!isLast() || isFirst()) {
       itemScrollController.animateTo(itemScrollController.offset + size,
           duration: duration, curve: curve);
@@ -135,10 +169,13 @@ class ScrollSnapWidgetsController {
     return false;
   }
 
+  //animate to the previous item with custom duration and curve
   bool animatePrevious({
+    //returns true if action is done, false otherwise
     Duration duration = const Duration(milliseconds: 500),
     Cubic curve = Curves.easeOut,
   }) {
+    //checking if the user is not already at the start
     if (!isFirst()) {
       itemScrollController.animateTo(itemScrollController.offset - size,
           duration: duration, curve: curve);
@@ -147,7 +184,10 @@ class ScrollSnapWidgetsController {
     return false;
   }
 
+  //go directly to the next item
   bool jumpNext() {
+    //returns true if action is done, false otherwise
+    //checking if the user is on the last edge
     if (!isLast() || isFirst()) {
       itemScrollController.jumpTo(
         itemScrollController.offset + size,
@@ -157,7 +197,10 @@ class ScrollSnapWidgetsController {
     return false;
   }
 
+  //go directly to previous item
   bool jumpPrevious() {
+    //returns true if action is done, false otherwise
+    //checking if the user is not already at the start
     if (!isFirst()) {
       itemScrollController.jumpTo(
         itemScrollController.offset - size,
@@ -167,11 +210,13 @@ class ScrollSnapWidgetsController {
     return false;
   }
 
+  //disposing the ScrollController
   void dispose() {
     itemScrollController.dispose();
   }
 }
 
+//main widget of the package, usable for both horizontal and vertical items
 class ScrollSnapWidgets extends StatelessWidget {
   //the direction in which these items will be scrollable
   final Axis scrollDirection;
@@ -197,6 +242,7 @@ class ScrollSnapWidgets extends StatelessWidget {
   //scroll physics of the parent scrollview (if any)
   final ScrollPhysics? parent;
 
+  //default constructor with all properties
   const ScrollSnapWidgets({
     super.key,
     required this.widgetSize,
@@ -211,6 +257,11 @@ class ScrollSnapWidgets extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    /*
+    The UI consists of a SizedBox with fixed height or width according to the scrollDirection
+    There is an optional padding as it's child
+    The main view is a ListView builder having the custom scroll physics and other custom properties
+    */
     return SizedBox(
       height: scrollDirection == Axis.horizontal ? widgetSize : null,
       width: scrollDirection == Axis.vertical ? widgetSize : null,

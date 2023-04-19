@@ -1,6 +1,6 @@
 name: scroll_snap_widgets
-description: A Flutter package to implement snapping items view without PageView. It provides functionality for both the Horizontal and Vertical items. It also comes with a controller to implement next-previous and start-end scrolling events programmatically.
-version: 0.0.1
+description: A Flutter package to implement snapping items view without PageView. Scrolling stops automatically on an item providing a unique scrolling experience through items.
+version: 0.0.2
 homepage: https://github.com/Aayush-Thacker/scroll_snap_widgets
 
 environment:

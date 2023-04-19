@@ -27,10 +27,10 @@ As soon as the user scrolls through these items, it automatically stops perfectl
 This plugin consists of one widget called ScrollSnapWidgets that gives the snapping functionality automatically. It takes a few required properties and is fully customizable with custom items.
 
 There is also a controller class called ScrollSnapWidgetsController having multiple functions with customizations:
-    - isFirst() and isLast() to check if the user is at the first or last item in the scrollable area.
-    - animateNext(), animatePrevious(), jumpNext(), jumpPrevious() functions help to programitically go through items.
-    - animateStart(), animateEnd(), jumpStart(), jumpEnd() functions help to go directly to the starting or ending point programmatically.
-    - The dispose() method is also there for resource cleanup.
++ isFirst() and isLast() to check if the user is at the first or last item in the scrollable area.
++ animateNext(), animatePrevious(), jumpNext(), jumpPrevious() functions help to programitically go through items.
++ animateStart(), animateEnd(), jumpStart(), jumpEnd() functions help to go directly to the starting or ending point programmatically.
++ The dispose() method is also there for resource cleanup.
 
 ## Getting started
 

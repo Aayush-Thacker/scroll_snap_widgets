@@ -1,14 +1,6 @@
 <!--
 This README describes the package. If you publish this package to pub.dev,
 this README's contents appear on the landing page for your package.
-
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
 A Flutter plugin for showing custom items in horizontal or vertical scrollable ListView with item snapping functionality.
@@ -17,8 +9,8 @@ As soon as the user scrolls through these items, it automatically stops perfectl
 
 <table>
 <tr>
-<td><img src="https://github.com/Aayush-Thacker/scroll_snap_widgets/blob/main/files/horizontal_recording.gif?raw=true" alt="Horizontal Items Recording"></td>
-<td><img src="https://github.com/Aayush-Thacker/scroll_snap_widgets/blob/main/files/vertical_recording.gif?raw=true" alt="Vertical Items Recording"></td>
+<td><img src="https://github.com/Aayush-Thacker/scroll_snap_widgets/blob/main/files/horizontal_recording_less_size.gif?raw=true" alt="Horizontal Items Recording" width="300" height="667"></td>
+<td><img src="https://github.com/Aayush-Thacker/scroll_snap_widgets/blob/main/files/vertical_recording_less_size.gif?raw=true" alt="Vertical Items Recording" width="300" height="667"></td>
 </tr>
 </table>
 
@@ -54,9 +46,9 @@ The example on GitHub will result in this kind of output:
 
 <table>
 <tr>
-<td><img src="https://raw.githubusercontent.com/Aayush-Thacker/scroll_snap_widgets/main/files/home_page_ss.png" alt="Home Page Screenshot"></td>
-<td><img src="https://raw.githubusercontent.com/Aayush-Thacker/scroll_snap_widgets/main/files/horizontal_ss.png" alt="Horizontal Items Screenshot"></td>
-<td><img src="https://raw.githubusercontent.com/Aayush-Thacker/scroll_snap_widgets/main/files/vertical_ss.png" alt="Vertical Items Screenshot"></td>
+<td><img src="https://raw.githubusercontent.com/Aayush-Thacker/scroll_snap_widgets/main/files/home_page_ss.png" alt="Home Page Screenshot" width="300" height="667"></td>
+<td><img src="https://github.com/Aayush-Thacker/scroll_snap_widgets/blob/main/files/horizontal_ss_less_size.jpg?raw=true" alt="Horizontal Items Screenshot" width="300" height="667"></td>
+<td><img src="https://github.com/Aayush-Thacker/scroll_snap_widgets/blob/main/files/vertical_ss_less_size.jpg?raw=true" alt="Vertical Items Screenshot" width="300" height="667"></td>
 </tr>
 </table>
 

@@ -1,14 +1,14 @@
-//a simple data model with title and asset image path as item
+///a simple data model with title and asset image path as item
 class ItemDataModel {
   String title;
   String image;
   ItemDataModel({required this.title, required this.image});
 }
 
-//class to store static data
+///class to store static data
 class Data {
-  //list of items containing Anime names and Images from the assets folder
-  //the images are from my wallpaper connection, fellow weebs might like them
+  ///list of items containing Anime names and Images from the assets folder
+  ///the images are from my wallpaper connection, fellow weebs might like them
   static List<ItemDataModel> allItems = [
     ItemDataModel(title: 'Naruto', image: 'assets/1.jpg'),
     ItemDataModel(title: 'Bleach', image: 'assets/2.jpg'),

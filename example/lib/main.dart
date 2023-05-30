@@ -23,7 +23,7 @@ void main() {
   runApp(const MyApp());
 }
 
-//the first app widget to build the MaterialApp
+///the first app widget to build the MaterialApp
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
@@ -39,14 +39,14 @@ class MyApp extends StatelessWidget {
   }
 }
 
-//HomePage of the example with 2 buttons and an appbar
+///HomePage of the example with 2 buttons and an appbar
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //appbar with constant title
+      ///appbar with constant title
       appBar: AppBar(
         title: const Text('Scroll Snap Widgets Example'),
         centerTitle: true,
@@ -54,7 +54,7 @@ class HomePage extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          //first button takes to the HorizontalItems screen
+          ///first button takes to the HorizontalItems screen
           Expanded(
             child: Padding(
               padding: const EdgeInsets.all(8),
@@ -78,7 +78,8 @@ class HomePage extends StatelessWidget {
               ),
             ),
           ),
-          //second button takes to the VerticalItems screen
+
+          ///second button takes to the VerticalItems screen
           Expanded(
             child: Padding(
               padding: const EdgeInsets.only(bottom: 8, right: 8, left: 8),
@@ -108,7 +109,7 @@ class HomePage extends StatelessWidget {
   }
 }
 
-//page to saw the use cases of package with horizontal scrollable items
+///page to saw the use cases of package with horizontal scrollable items
 class HorizontalItems extends StatefulWidget {
   const HorizontalItems({super.key});
 
@@ -118,10 +119,12 @@ class HorizontalItems extends StatefulWidget {
 
 class _HorizontalItemsState extends State<HorizontalItems> {
   static const double bigItemWidth = 300;
-  //controller for animated example
+
+  ///controller for animated example
   final ScrollSnapWidgetsController _controllerAnimate =
       ScrollSnapWidgetsController(size: bigItemWidth);
-  //controller for jumping example
+
+  ///controller for jumping example
   final ScrollSnapWidgetsController _controllerJump =
       ScrollSnapWidgetsController(size: bigItemWidth);
   @override
@@ -142,16 +145,19 @@ class _HorizontalItemsState extends State<HorizontalItems> {
                 style: TextStyle(fontSize: 20),
               ),
             ),
-            //simple use case without controller
+
+            ///simple use case without controller
             ScrollSnapWidgets(
                 padding: EdgeInsets.zero,
-                //widget size is height in this example
+
+                ///widget size is height in this example
                 widgetSize: 200,
                 scrollDirection: Axis.horizontal,
-                //item size is item's width
+
+                ///item size is item's width
                 itemSize: 200,
                 itemBuilder: (itemIndex) => SimpleItemCard(
-                      //keep same as item size
+                      ///keep same as item size
                       widgth: 200,
                       item: Data.allItems[itemIndex],
                     ),
@@ -169,14 +175,14 @@ class _HorizontalItemsState extends State<HorizontalItems> {
                   ),
                   IconButton(
                     onPressed: () {
-                      //animate previous with the default curve and duration
+                      ///animate previous with the default curve and duration
                       _controllerAnimate.animatePrevious();
                     },
                     icon: const Icon(Icons.navigate_before),
                   ),
                   IconButton(
                     onPressed: () {
-                      //animaet next with custom curve and duration
+                      ///animaet next with custom curve and duration
                       _controllerAnimate.animateNext(
                           duration: const Duration(seconds: 1),
                           curve: Curves.linearToEaseOut);
@@ -186,11 +192,13 @@ class _HorizontalItemsState extends State<HorizontalItems> {
                 ],
               ),
             ),
-            //example with controller to control the widget's scroll event programetically
+
+            ///example with controller to control the widget's scroll event programetically
             ScrollSnapWidgets(
                 controller: _controllerAnimate,
                 padding: EdgeInsets.zero,
-                //widget's width
+
+                ///widget's width
                 widgetSize: 300,
                 scrollDirection: Axis.horizontal,
                 itemSize: bigItemWidth,
@@ -212,14 +220,14 @@ class _HorizontalItemsState extends State<HorizontalItems> {
                   ),
                   IconButton(
                     onPressed: () {
-                      //controller function call for previous jumping
+                      ///controller function call for previous jumping
                       _controllerJump.jumpPrevious();
                     },
                     icon: const Icon(Icons.navigate_before),
                   ),
                   IconButton(
                     onPressed: () {
-                      //controller function call for next jumping
+                      ///controller function call for next jumping
                       _controllerJump.jumpNext();
                     },
                     icon: const Icon(Icons.navigate_next),
@@ -230,7 +238,8 @@ class _HorizontalItemsState extends State<HorizontalItems> {
             ScrollSnapWidgets(
                 controller: _controllerJump,
                 padding: EdgeInsets.zero,
-                //width of the widget
+
+                ///width of the widget
                 widgetSize: 300,
                 scrollDirection: Axis.horizontal,
                 itemSize: bigItemWidth,
@@ -245,7 +254,7 @@ class _HorizontalItemsState extends State<HorizontalItems> {
     );
   }
 
-  //the dispose method of the controller disposes of the scroll controller
+  ///the dispose method of the controller disposes of the scroll controller
   @override
   void dispose() {
     _controllerAnimate.dispose();
@@ -254,7 +263,7 @@ class _HorizontalItemsState extends State<HorizontalItems> {
   }
 }
 
-//example to demonstrate Vertically snapping items that stop autometically when user scrolls like instagram posts
+///example to demonstrate Vertically snapping items that stop autometically when user scrolls like instagram posts
 class VerticalItems extends StatefulWidget {
   const VerticalItems({super.key});
 
@@ -264,7 +273,8 @@ class VerticalItems extends StatefulWidget {
 
 class _VerticalItemsState extends State<VerticalItems> {
   static const double itemHeight = 500;
-  //controller for handling custom scroll event callbacks
+
+  ///controller for handling custom scroll event callbacks
   final ScrollSnapWidgetsController _controller =
       ScrollSnapWidgetsController(size: itemHeight);
   @override
@@ -278,19 +288,21 @@ class _VerticalItemsState extends State<VerticalItems> {
         height: double.maxFinite,
         width: double.maxFinite,
         child: Stack(
-          //defines the width of the widget
+          ///defines the width of the widget
           fit: StackFit.expand,
           children: [
-            //vertical scrollable items with controller example
+            ///vertical scrollable items with controller example
             ScrollSnapWidgets(
                 controller: _controller,
-                //widget height
+
+                ///widget height
                 widgetSize: double.maxFinite,
                 scrollDirection: Axis.vertical,
-                //item height
+
+                ///item height
                 itemSize: itemHeight,
                 itemBuilder: (itemIndex) => SimpleItemCard(
-                      //same height as above
+                      ///same height as above
                       height: itemHeight,
                       item: Data.allItems[itemIndex],
                     ),
@@ -309,7 +321,7 @@ class _VerticalItemsState extends State<VerticalItems> {
                       Expanded(
                         child: InkWell(
                           onTap: () {
-                            //function call to animate to the starting point
+                            ///function call to animate to the starting point
                             _controller.animateStart();
                           },
                           child: Column(
@@ -328,7 +340,7 @@ class _VerticalItemsState extends State<VerticalItems> {
                       Expanded(
                         child: InkWell(
                           onTap: () {
-                            //function call to animate to the ending point with custom duration
+                            ///function call to animate to the ending point with custom duration
                             _controller.animateEnd(
                                 duration: const Duration(seconds: 2));
                           },
@@ -364,7 +376,7 @@ class _VerticalItemsState extends State<VerticalItems> {
                       Expanded(
                         child: InkWell(
                           onTap: () {
-                            //function call for jumping to the starting point
+                            ///function call for jumping to the starting point
                             _controller.jumpStart();
                           },
                           child: Column(
@@ -383,7 +395,7 @@ class _VerticalItemsState extends State<VerticalItems> {
                       Expanded(
                         child: InkWell(
                           onTap: () {
-                            //function call for jumping to the ending point
+                            ///function call for jumping to the ending point
                             _controller.jumpEnd();
                           },
                           child: Column(
@@ -410,7 +422,7 @@ class _VerticalItemsState extends State<VerticalItems> {
     );
   }
 
-  //the dispose method of the controller disposes of the scroll controller
+  ///the dispose method of the controller disposes of the scroll controller
   @override
   void dispose() {
     _controller.dispose();

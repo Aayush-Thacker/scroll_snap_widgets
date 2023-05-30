@@ -1,6 +1,6 @@
 name: scroll_snap_widgets
 description: A Flutter package to implement snapping items view without PageView. Scrolling stops automatically on an item providing a unique scrolling experience through items.
-version: 0.0.4
+version: 0.0.7
 homepage: https://github.com/Aayush-Thacker/scroll_snap_widgets
 
 environment:
@@ -14,7 +14,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^2.0.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
